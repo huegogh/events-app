@@ -11,8 +11,18 @@ class EventsController < ApplicationController
   # GET /events/today
   def today
     @events = Event.where(:created_at => (Time.now.midnight.utc..(Time.now.midnight + 1.day).utc))
+    clicks = 0
+    views = 0
 
-    render json: @events
+    @events.each do |event|
+      if event[:event_type].downcase == "click"
+        clicks += 1
+      elsif event[:event_type].downcase == "view"
+        views += 1
+      end  
+    end
+
+    render json: {EG: {todays_stats: [{click: clicks}, {view: views}]}}
   end
 
   # GET /events/1
