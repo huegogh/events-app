@@ -63,6 +63,6 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit!
-      { name: params[:event][:name], event_type: params[:event][:event_type], raw_data: params[:event].to_json}
+      { name: params[:event][:name], event_type: params[:event][:event_type], raw_data: params.to_json}
     end
 end
