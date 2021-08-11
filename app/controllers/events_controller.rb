@@ -8,6 +8,13 @@ class EventsController < ApplicationController
     render json: @events
   end
 
+  # GET /events/today
+  def today
+    @events = Event.where(:created_at => (Time.now.midnight.utc..(Time.now.midnight + 1.day).utc))
+
+    render json: @events
+  end
+
   # GET /events/1
   def show
     render json: @event
@@ -44,7 +51,6 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit!
       { name: params[:event][:name], event_type: params[:event][:event_type], raw_data: params[:event].to_json}
