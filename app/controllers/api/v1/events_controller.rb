@@ -37,7 +37,7 @@ module Api
         @event = Event.new(event_params)
 
         if @event.save
-          render json: @event, status: :created
+          head :created
         else
           render json: @event.errors, status: :unprocessable_entity
         end
