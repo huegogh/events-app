@@ -1,24 +1,37 @@
-# README
+# Events App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The **Events App** is an API to track user events on other applications.
 
-Things you may want to cover:
+<br>
 
-* Ruby version
+# API Reference
 
-* System dependencies
+<br>
 
-* Configuration
+## Base URL
 
-* Database creation
+```http
+    http://temporaryUrl.com
+```
 
-* Database initialization
+<br>
 
-* How to run the test suite
+## Adding An Event
 
-* Services (job queues, cache servers, search engines, etc.)
+```http
+    POST /events
+```
 
-* Deployment instructions
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | **REQUIRED** name for the event |
+| `event_type` | `string` | **REQUIRED** type of event (e.g. *click*, *view*) |
+| `[any]` | `[any]` | **optional** any other *key/value* pair |
 
-* ...
+<br>
+
+## Retrieving Summary of Today's Events
+
+```http
+    GET /events/today
+```
