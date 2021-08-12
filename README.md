@@ -19,7 +19,7 @@ The **Events App** is an API to track user events on other applications.
 ## Adding An Event
 
 ```http
-    POST /events
+    POST /api/v1/events
 ```
 
 | Parameter | Type     | Description                |
@@ -33,5 +33,5 @@ The **Events App** is an API to track user events on other applications.
 ## Retrieving Summary of Today's Events
 
 ```http
-    GET /events/today
+    GET /api/v1/events/today
 ```
