@@ -11,7 +11,7 @@ The **Events App** is an API to track user events on other applications.
 ## Base URL
 
 ```http
-    http://temporaryUrl.com
+    https://floating-reef-41684.herokuapp.com
 ```
 
 <br>
